@@ -2,11 +2,10 @@
 
 ## GROUP <add-group-name>
 
-- Member 1: <add-name>
-- Member 2: <add-name>
-- Member 3: <add-name>
-- Member 4: <add-name>
-
+- Member 1: Vũ Thị Thảo
+- Member 2: Phạm Thị Thu Hà
+- Member 3: Đặng Lê Kim Chi
+- Member 4: Nguyễn Quốc Đạt
 ## Starting server
 
 - Run on your terminal `docker-compose up`
