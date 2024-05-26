@@ -1,0 +1,49 @@
+<div class="max-w-3xl mx-auto px-4">
+  <div class="flex items-center justify-between">
+    <h1 class="flex-1 font-bold text-3xl">Note</h1>
+
+    <div class="flex-wrap lg:flex items-center lg:space-x-3">
+      <%= link_to notes_path, class: button_class(theme: "transparent") do %>
+      All Notes
+      <% end %>
+      <%= link_to edit_note_path(@note), class: button_class(theme:"primary") do %>
+      Edit
+      <% end %>
+    </div>
+  </div>
+
+  <ul class="text-slate-700">
+      <li>
+        <p class="font-semibold">Title:</p>
+        <p><%= @note.title %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Author:</p>
+        <p><%= @note.author %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Genre:</p>
+        <p><%= @note.genre %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Publisher:</p>
+        <p><%= @note.publisher %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Isbn:</p>
+        <p><%= @note.isbn %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Publish year:</p>
+        <p><%= @note.publish_year %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Price:</p>
+        <p><%= @note.price %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Stock quantity:</p>
+        <p><%= @note.stock_quantity %></p>
+      </li>
+  </ul>
+</div>

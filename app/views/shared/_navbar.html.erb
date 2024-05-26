@@ -3,7 +3,7 @@
     <%= link_to root_path, class:"link text-xl tracking-tight font-black" do %>
       <span class="sr-only">Add your app name here</span>
       <%# Remove this logo and add your own %>
-      <%#= image_tag("logo.png", size: '60') %>
+      <%#= image_tag("logo.jpg", size: '60') %>
     <% end %>
   </div>
   <div class="block lg:hidden">
@@ -14,7 +14,7 @@
   </div>
   <div class="items-center w-full text-center lg:flex-1 lg:flex lg:text-left pt-2 lg:pt-0 hidden" data-nav-target="menu">
     <div class="lg:flex-grow">
-      <%= link_to "Basic Link", "#", class: "p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block" %>
+      <%= link_to "Book Store", "#", class: "p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block" %>
     </div>
     <div class="items-center block w-full mt-2 text-center lg:flex lg:flex-row lg:flex-1 lg:mt-0 lg:text-left lg:justify-end">
       <div><%# More links can go here %>
@@ -30,6 +30,9 @@
       <% else %>
         <%= link_to "Sign in", new_user_session_path, class:"p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block" %>
         <%= link_to "Sign up", new_user_registration_path, class:"p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block lg:ml-2" %>
+
+        <%= link_to "Books", "/notes", class: "p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block" %>
+        <%= link_to "Authors", "/authors", class: "p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block" %>
 
         <span class="h-5 w-px bg-gray-200 mx-3"></span>
 

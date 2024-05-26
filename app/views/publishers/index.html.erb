@@ -1,0 +1,41 @@
+
+
+
+<div class="container mx-auto px-4">
+  <div class="flex items-center justify-between flex-wrap mb-6">
+    <h1 class="text-3xl font-bold">Publishers</h1>
+
+    <%= link_to new_publisher_path, class: button_class(theme: "primary") do %>
+    Add New Publisher
+    <% end %>
+  </div>
+
+  <table class="table-auto border-collapse border-slate-400 w-full">
+    <thead class="bg-slate-50 dark:bg-slate-700">
+      <tr>
+        
+          <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left">Name</th>
+        
+                  <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left">Address</th>
+                  <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left">Phone</th>
+                
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @publishers.each do |publisher| %>
+      <%= content_tag :tr, id: dom_id(publisher), class: dom_class(publisher) do %>
+      
+        <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400"><%= link_to publisher.name, publisher %></td>
+      
+
+              <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400"><%= publisher.address %></td>
+              <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400"><%= publisher.phone %></td>
+      
+      
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
