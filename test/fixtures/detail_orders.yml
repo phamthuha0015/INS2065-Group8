@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order: one
+  note: one
+  quantity: 1
+  total_price: 1.5
+  payment_method: MyString
+
+two:
+  order: two
+  note: two
+  quantity: 1
+  total_price: 1.5
+  payment_method: MyString

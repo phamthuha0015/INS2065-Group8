@@ -1,0 +1,42 @@
+<%= form_with(model: detail_order) do |form| %>
+<% if detail_order.errors.any? %>
+<div id="error_explanation" class="bg-red-50 p-6 rounded text-red-800">
+  <h2 class="text-lg font-semibold mb-3"><%= pluralize(detail_order.errors.count, "error") %> prohibited this detail_order from being saved:</h2>
+
+  <ul class="list-disc leading-relaxed">
+    <% detail_order.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+  <div class="mb-6">
+        <%= form.label :order_id, class: label_class %>
+          <%= form.select :order_id, options_from_collection_for_select( Order.all, 'id', 'name', selected = detail_order.order_id), class: label_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :note_id, class: label_class %>
+          <%= form.select :note_id, options_from_collection_for_select( Note.all, 'id', 'name', selected = detail_order.note_id), class: label_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :quantity, class: label_class %>
+          <%= form.number_field :quantity, class: input_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :total_price, class: label_class %>
+          <%= form.text_field :total_price, class: input_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :payment_method, class: label_class %>
+          <%= form.text_field :payment_method, class: input_class %>
+      </div>
+
+<%= form.submit class: button_class(theme: 'primary') %>
+
+<% if detail_order.persisted? %>
+<%= link_to "Cancel", detail_order, class: "text-neutral-700 underline inline-block ml-3" %>
+<% else %>
+<%= link_to "Cancel", detail_orders_path, class:  "text-neutral-700 underline inline-block ml-3" %>
+<% end %>
+<% end %>

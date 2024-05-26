@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   resources :publishers
   resources :notes
   resources :customers
+  resources :suppliers
+  resources :supplier_orders
+  resources :orders
+  resources :detail_orders
   authenticate :user, ->(u) { u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end

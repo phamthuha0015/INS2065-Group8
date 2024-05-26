@@ -1,6 +1,6 @@
 # README
 
-## GROUP <add-group-name>
+## GROUP 8: Bookstore management system
 
 - Member 1: Vũ Thị Thảo
 - Member 2: Phạm Thị Thu Hà

@@ -1,0 +1,33 @@
+<div class="max-w-3xl mx-auto px-4">
+  <div class="flex items-center justify-between">
+    <h1 class="flex-1 font-bold text-3xl">Supplier_order</h1>
+
+    <div class="flex-wrap lg:flex items-center lg:space-x-3">
+      <%= link_to supplier_orders_path, class: button_class(theme: "transparent") do %>
+      All Supplier_orders
+      <% end %>
+      <%= link_to edit_supplier_order_path(@supplier_order), class: button_class(theme:"primary") do %>
+      Edit
+      <% end %>
+    </div>
+  </div>
+
+  <ul class="text-slate-700">
+      <li>
+        <p class="font-semibold">Supplier:</p>
+        <p><%= @supplier_order.supplier %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Note:</p>
+        <p><%= @supplier_order.note %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Quantity:</p>
+        <p><%= @supplier_order.quantity %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Cost:</p>
+        <p><%= @supplier_order.cost %></p>
+      </li>
+  </ul>
+</div>

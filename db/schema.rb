@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_26_142842) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_26_163610) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,22 +59,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_26_142842) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "books", force: :cascade do |t|
-    t.string "title"
-    t.bigint "author_id", null: false
-    t.bigint "genre_id", null: false
-    t.bigint "publisher_id", null: false
-    t.string "isbn"
-    t.integer "publish_year"
-    t.float "price"
-    t.integer "stocke_quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_books_on_author_id"
-    t.index ["genre_id"], name: "index_books_on_genre_id"
-    t.index ["publisher_id"], name: "index_books_on_publisher_id"
-  end
-
   create_table "customers", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -82,6 +66,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_26_142842) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "detail_orders", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "note_id", null: false
+    t.integer "quantity"
+    t.float "total_price"
+    t.string "payment_method"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_detail_orders_on_note_id"
+    t.index ["order_id"], name: "index_detail_orders_on_order_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -117,6 +113,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_26_142842) do
     t.index ["publisher_id"], name: "index_notes_on_publisher_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.date "order_date"
+    t.bigint "customer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
+  end
+
   create_table "publishers", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -138,6 +142,25 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_26_142842) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "supplier_orders", force: :cascade do |t|
+    t.bigint "supplier_id", null: false
+    t.bigint "note_id", null: false
+    t.integer "quantity"
+    t.float "cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_supplier_orders_on_note_id"
+    t.index ["supplier_id"], name: "index_supplier_orders_on_supplier_id"
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -155,10 +178,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_26_142842) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "books", "authors"
-  add_foreign_key "books", "genres"
-  add_foreign_key "books", "publishers"
+  add_foreign_key "detail_orders", "notes"
+  add_foreign_key "detail_orders", "orders"
   add_foreign_key "notes", "authors"
   add_foreign_key "notes", "genres"
   add_foreign_key "notes", "publishers"
+  add_foreign_key "orders", "customers"
+  add_foreign_key "supplier_orders", "notes"
+  add_foreign_key "supplier_orders", "suppliers"
 end

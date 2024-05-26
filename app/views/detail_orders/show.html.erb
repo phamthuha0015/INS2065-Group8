@@ -1,0 +1,37 @@
+<div class="max-w-3xl mx-auto px-4">
+  <div class="flex items-center justify-between">
+    <h1 class="flex-1 font-bold text-3xl">Detail_order</h1>
+
+    <div class="flex-wrap lg:flex items-center lg:space-x-3">
+      <%= link_to detail_orders_path, class: button_class(theme: "transparent") do %>
+      All Detail_orders
+      <% end %>
+      <%= link_to edit_detail_order_path(@detail_order), class: button_class(theme:"primary") do %>
+      Edit
+      <% end %>
+    </div>
+  </div>
+
+  <ul class="text-slate-700">
+      <li>
+        <p class="font-semibold">Order:</p>
+        <p><%= @detail_order.order %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Book:</p>
+        <p><%= @detail_order.note %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Quantity:</p>
+        <p><%= @detail_order.quantity %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Total price:</p>
+        <p><%= @detail_order.total_price %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Payment method:</p>
+        <p><%= @detail_order.payment_method %></p>
+      </li>
+  </ul>
+</div>
